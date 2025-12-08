@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\ProductController;
+
+// Display all products
+Route::get('/products', [ProductController::class, 'index']);
+
+// Create test data
+Route::get('/products/testdata', [ProductController::class, 'createTestData']);
